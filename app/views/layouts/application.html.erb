@@ -18,6 +18,12 @@
       <%= link_to category.name, category_path(category) %>
     </li>
     <% end %>
+    <li class="special">
+      <%= link_to 'Add category', new_category_path %>
+    </li>
+    <li class="special">
+      <%= link_to 'Add product', new_product_path %>
+    </li>
   </ul>
 </nav>
 

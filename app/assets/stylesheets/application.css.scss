@@ -45,6 +45,12 @@ nav{
       margin: 0px;
       padding: 0px;
     }
+    li.special{
+      float: right;
+      a:hover, a:active{
+        background-color: orangered;
+      }
+    }
     a{
       display: inline-block;
       height: 20px;
@@ -63,6 +69,12 @@ nav{
       @include bgcolor-transition(0.4s);
     }
   }
+}
+div.product{
+  margin: 4px;
+  padding: 5px;
+  background-color: lightgoldenrodyellow;
+
 }
 
 

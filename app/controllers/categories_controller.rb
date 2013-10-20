@@ -10,6 +10,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @category = set_category
+    @products = @category.products
   end
 
   # GET /categories/new
@@ -31,7 +33,7 @@ class CategoriesController < ApplicationController
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
         format.json { render action: 'show', status: :created, location: @category }
       else
-        format.html { render action: 'new' }
+        format.html { render 'new' }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
