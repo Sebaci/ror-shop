@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+@import 'mixins';
+
+#top{
+  height: 60px;
+  background-color: #eff0d0;
+  text-align: center;
+  padding-top: 2px;
+
+}
+h1{
+  margin-bottom: 3px;
+  color: yellowgreen;
+}
+
+nav{
+  display: inline-block;
+  width: 100%;
+  margin: 0px;
+  pading: 0px;
+  text-align: center;
+  font-weight: bold;
+  background-color: lightgray;
+
+  ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    li{
+      float: left;
+      display: inline;
+      margin: 0px;
+      padding: 0px;
+    }
+    a{
+      display: inline-block;
+      height: 20px;
+      margin: 0px;
+      padding: 5px;
+      text-decoration: none;
+      &:link, &:visited{
+        color: black;
+        background-color: lightgray;
+      }
+      &:hover, &:active{
+        color: white;
+        background-color: yellowgreen;
+      }
+      @include color-transition(0.4s);
+      @include bgcolor-transition(0.4s);
+    }
+  }
+}
+
+

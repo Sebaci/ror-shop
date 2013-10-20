@@ -1,0 +1,14 @@
+@mixin color-transition($duration){
+  transition:color $duration;
+  -webkit-transition:color $duration;
+  -moz-transition:color $duration;
+  -o-transition:color $duration;
+  -ms-transition:color $duration;
+}
+@mixin bgcolor-transition($duration){
+  transition:background-color $duration;
+  -webkit-transition:background-color $duration;
+  -moz-transition:background-color $duration;
+  -o-transition:background-color $duration;
+  -ms-transition:background-color $duration;
+}

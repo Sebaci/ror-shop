@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="top"><h1>Super computer shop!</h1></div>
+<nav>
+  <ul>
+    <li>
+      <%= link_to 'Newest products', products_path %>
+    </li>
+    <% @categories.each do |category| %>
+    <li>
+      <%= link_to category.name, category_path(category) %>
+    </li>
+    <% end %>
+  </ul>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>
