@@ -4,7 +4,7 @@ class Admin::ProductsController < AdminController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.order("created_at DESC").limit 5
+    @products = Product.order("created_at DESC").all
   end
 
   # GET /products/1
@@ -28,7 +28,7 @@ class Admin::ProductsController < AdminController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to admin_product_path(@product), notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class Admin::ProductsController < AdminController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to admin_product_path(@product), notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

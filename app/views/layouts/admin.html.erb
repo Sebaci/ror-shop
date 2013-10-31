@@ -11,7 +11,7 @@
 <nav>
   <ul>
     <li>
-      <%= link_to 'Newest products', admin_products_path %>
+      <%= link_to 'All products', admin_products_path %>
     </li>
     <% @categories.each do |category| %>
         <li>
@@ -19,8 +19,12 @@
         </li>
     <% end %>
 
+
     <li class="special">
       <%= link_to 'Logout', destroy_admin_session_path, method: :delete %>
+    </li>
+    <li class="special">
+      <%= link_to 'Categories', admin_categories_path %>
     </li>
   </ul>
 </nav>
