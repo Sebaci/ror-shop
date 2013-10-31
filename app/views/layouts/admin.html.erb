@@ -11,16 +11,16 @@
 <nav>
   <ul>
     <li>
-      <%= link_to 'Newest products', products_path %>
+      <%= link_to 'Newest products', admin_products_path %>
     </li>
     <% @categories.each do |category| %>
-    <li>
-      <%= link_to category.name, category_path(category) %>
-    </li>
+        <li>
+          <%= link_to category.name, admin_category_path(category) %>
+        </li>
     <% end %>
 
     <li class="special">
-      <%= link_to 'Admin', new_admin_session_path %>
+      <%= link_to 'Logout', destroy_admin_session_path, method: :delete %>
     </li>
   </ul>
 </nav>

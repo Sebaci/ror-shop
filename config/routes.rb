@@ -1,7 +1,14 @@
 Shop::Application.routes.draw do
   devise_for :admins
-  resources :products
-  resources :categories
+
+  namespace :admin do
+    resources :products
+    resources :categories
+    root to: 'categories#index'
+  end
+
+  resources :products, only: [:index, :show]
+  resources :categories, only: [:show]
 
   root to: 'products#index'
 
