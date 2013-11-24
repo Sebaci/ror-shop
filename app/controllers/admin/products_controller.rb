@@ -1,5 +1,6 @@
 class Admin::ProductsController < AdminController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:create]
 
   # GET /products
   # GET /products.json
@@ -27,10 +28,12 @@ class Admin::ProductsController < AdminController
     @product = Product.new(product_params)
 
     respond_to do |format|
-      if @product.save
+
+      begin
+        @service.add_product(@product)
         format.html { redirect_to admin_product_path(@product), notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product }
-      else
+      rescue ProductService::ProductCreateError
         format.html { render action: 'new' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
@@ -70,5 +73,9 @@ class Admin::ProductsController < AdminController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :descr, :price, :category_id)
+    end
+
+    def set_service(service = ProductService.new)
+      @service = service
     end
 end
